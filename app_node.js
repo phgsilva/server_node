@@ -8,6 +8,10 @@ http.createServer(function (req, res) {
     var u = url.parse(req.url, true);
     var arquivo = u.pathname.replace('/', '');
 
+    if (!arquivo || arquivo.length === 0) {
+        arquivo = "index.html";
+    }
+
     if (arquivo.indexOf(".") === -1) {
         arquivo = arquivo + ".html";
     }
